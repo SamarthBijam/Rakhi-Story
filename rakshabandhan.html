@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Raksha Bandhan</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffecd2, #fcb69f);
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Border */
+    .border {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://i.imgur.com/jZpW1Er.png');
+        background-repeat: repeat;
+        background-size: 150px;
+        pointer-events: none;
+        opacity: 0.25;
+        z-index: 2;
+    }
+
+    /* Sparkles */
+    .sparkle {
+        position: absolute;
+        background: radial-gradient(circle, gold 40%, transparent 60%);
+        border-radius: 50%;
+        animation: fall linear infinite;
+        opacity: 0.8;
+        z-index: 1;
+    }
+    @keyframes fall {
+        0% { transform: translateY(-10px) scale(0.5); opacity: 1; }
+        100% { transform: translateY(110vh) scale(1); opacity: 0; }
+    }
+
+    /* Container */
+    .container {
+        padding: 20px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        max-width: 400px;
+        z-index: 3;
+    }
+
+    h1 {
+        font-family: 'Great Vibes', cursive;
+        color: #d35400;
+        font-size: 2.8em;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.2em;
+        color: #6d4c41;
+        margin-bottom: 20px;
+    }
+
+    .rakhi {
+        width: 150px;
+        animation: spin 8s linear infinite;
+    }
+    @keyframes spin {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
+
+    /* Diyas */
+    .diya {
+        position: absolute;
+        bottom: 15px;
+        width: 80px;
+        animation: glow 1.5s ease-in-out infinite alternate;
+        z-index: 3;
+    }
+    .diya.left { left: 20px; }
+    .diya.right { right: 20px; }
+    @keyframes glow {
+        from { filter: brightness(1); }
+        to { filter: brightness(1.6); }
+    }
+
+    /* Floating emojis */
+    .decor {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 40px;
+        animation: float 4s ease-in-out infinite;
+        z-index: 3;
+    }
+    .decor2 {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 40px;
+        animation: float 4s ease-in-out infinite reverse;
+        z-index: 3;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    /* Instagram handle with shimmer */
+    .insta {
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        text-align: center;
+        font-size: 1em;
+        font-weight: 600;
+        letter-spacing: 1px;
+        background: linear-gradient(90deg, gold, #fff5cc, gold);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: shimmer 3s linear infinite;
+        text-shadow: 0 0 5px rgba(255,215,0,0.6), 0 0 10px rgba(255,215,0,0.8);
+        z-index: 5;
+    }
+    @keyframes shimmer {
+        0% { background-position: 200% center; }
+        100% { background-position: 0% center; }
+    }
+</style>
+</head>
+<body>
+
+<div class="border"></div>
+
+<div class="decor">🎉</div>
+<div class="decor2">🌸</div>
+
+<div class="container">
+    <img src="https://i.imgur.com/Oq5P5K7.png" alt="Rakhi" class="rakhi">
+    <h1>Happy Raksha Bandhan</h1>
+    <p>Celebrating the beautiful bond of love, protection & joy ❤️</p>
+</div>
+
+<img src="https://i.imgur.com/9pKNb8t.png" class="diya left">
+<img src="https://i.imgur.com/9pKNb8t.png" class="diya right">
+
+<div class="insta">@samxbijam</div>
+
+<script>
+    // Generate sparkles
+    for(let i=0; i<25; i++){
+        let sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        let size = Math.random() * 8 + 4;
+        sparkle.style.width = size + "px";
+        sparkle.style.height = size + "px";
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.animationDuration = (Math.random() * 5 + 4) + "s";
+        sparkle.style.animationDelay = Math.random() * 5 + "s";
+        document.body.appendChild(sparkle);
+    }
+</script>
+
+</body>
+</html>
